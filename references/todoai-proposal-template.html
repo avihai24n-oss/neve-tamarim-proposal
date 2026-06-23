@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעת מחיר · TodoAI Studio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --ink:#16151A; --body:#54524C; --muted:#A09E98; --faint:#C4C2BC;
+    --coral:#F2542D; --bg:#F4F4F2; --card:#FFFFFF; --border:#E5E4E0; --rule:#ECEBE7;
+  }
+  html,body{ background:var(--bg); }
+  body{
+    font-family:'Heebo',-apple-system,'Segoe UI',Arial,sans-serif;
+    color:var(--body); -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    padding:40px 20px;
+  }
+  .page{
+    max-width:820px; margin:0 auto; background:var(--card);
+    border:1px solid var(--border); border-radius:4px;
+    padding:64px 64px 48px;
+  }
+
+  /* Header */
+  .logo{ display:flex; align-items:center; gap:11px; }
+  .logo img{ width:38px; height:38px; border-radius:9px; display:block; }
+  .logo .wm{ font-size:20px; font-weight:800; color:var(--ink); letter-spacing:-0.3px; }
+  .hr{ height:1px; background:var(--rule); border:0; margin:32px 0; }
+
+  .eyebrow{ font-size:12px; font-weight:700; letter-spacing:2px; color:var(--coral); }
+  h1{ font-size:30px; font-weight:800; color:var(--ink); line-height:1.2; margin:14px 0 12px; letter-spacing:-0.5px; }
+  .lead{ font-size:16px; color:var(--body); line-height:1.7; max-width:560px; }
+
+  /* Flow */
+  .flow{ display:flex; flex-wrap:wrap; gap:8px 6px; align-items:center; margin:28px 0 4px; }
+  .flow .s{ font-size:13.5px; color:var(--ink); font-weight:500; }
+  .flow .a{ color:var(--coral); font-weight:800; }
+
+  /* Offers */
+  .offers{ display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:8px; }
+  .offer{ padding:34px 30px; }
+  .offer.left{ border-left:1px solid var(--rule); }
+  .tag{ font-size:12px; font-weight:700; letter-spacing:1.5px; color:var(--coral); }
+  .offer h2{ font-size:21px; font-weight:800; color:var(--ink); margin:6px 0 4px; }
+  .offer .desc{ font-size:13.5px; color:var(--muted); line-height:1.6; min-height:42px; margin-bottom:22px; }
+
+  .pr{ display:flex; align-items:baseline; gap:8px; margin-bottom:4px; }
+  .pr .k{ font-size:13px; color:var(--muted); width:46px; }
+  .pr .v{ font-size:28px; font-weight:900; color:var(--ink); }
+  .pr .v.r{ font-size:20px; color:var(--coral); }
+  .pr .u{ font-size:13px; color:var(--muted); }
+  .minirule{ height:1px; background:var(--rule); margin:20px 0; }
+
+  ul{ list-style:none; }
+  li{ position:relative; padding:7px 22px 7px 0; font-size:14.5px; color:var(--ink); }
+  li::before{ content:'✓'; position:absolute; right:0; top:7px; color:var(--coral); font-weight:800; font-size:13px; }
+  li.plus{ color:var(--body); }
+  li.plus::before{ content:'+'; }
+
+  /* Costs */
+  .costs{ margin-top:34px; padding-top:28px; border-top:1px solid var(--rule); }
+  .costs .eyebrow{ display:block; margin-bottom:10px; }
+  .costs p{ font-size:14.5px; color:var(--body); line-height:1.8; }
+  .costs b{ color:var(--ink); font-weight:700; }
+  .costs .coral{ color:var(--coral); font-weight:800; }
+  .compare{ display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:22px; border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+  .cmp{ padding:20px 22px; }
+  .cmp:first-child{ border-left:1px solid var(--rule); background:#FBFBFA; }
+  .cmp-k{ font-size:12px; font-weight:700; letter-spacing:1px; color:var(--muted); margin-bottom:6px; }
+  .cmp-v{ font-size:22px; font-weight:900; color:var(--ink); }
+  .cmp-v.coral{ color:var(--coral); }
+  .cmp-v.strike{ color:var(--muted); text-decoration:line-through; text-decoration-color:var(--faint); }
+  .cmp-n{ font-size:12.5px; color:var(--muted); line-height:1.6; margin-top:8px; }
+
+  /* Signature */
+  .sig{ margin-top:40px; padding-top:26px; border-top:1px solid var(--rule); }
+  .sig .name{ font-size:15px; font-weight:700; color:var(--ink); }
+  .sig .title{ font-size:13.5px; color:var(--muted); padding-top:2px; }
+  .sig .links{ font-size:13px; color:var(--body); padding-top:14px; }
+  .sig .links a{ color:var(--coral); text-decoration:none; }
+
+  .foot{ margin-top:28px; font-size:11px; color:var(--faint); }
+
+  /* Print button */
+  .printbar{ max-width:820px; margin:0 auto 18px; text-align:left; }
+  .printbtn{
+    font-family:inherit; background:var(--coral); color:#fff; border:0; border-radius:4px;
+    padding:11px 22px; font-size:14px; font-weight:700; cursor:pointer;
+  }
+  @media print{
+    body{ padding:0; } .page{ border:0; border-radius:0; }
+    .printbar{ display:none; }
+  }
+  @media(max-width:680px){
+    .page{ padding:40px 26px; } .offers{ grid-template-columns:1fr; }
+    .offer.left{ border-left:0; border-top:1px solid var(--rule); }
+    h1{ font-size:25px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="printbar"><button class="printbtn" onclick="window.print()">שמור כ-PDF / הדפס</button></div>
+
+  <div class="page">
+
+    <!-- Header -->
+    <div class="logo">
+      <img src="https://avihai24n-oss.github.io/webinar/assets/todoai-icon.png" alt="TodoAI">
+      <span class="wm">TodoAI</span>
+    </div>
+    <hr class="hr">
+
+    <div class="eyebrow">הצעת מחיר</div>
+    <h1>מערכת יצירת ופרסום<br>סרטוני אווטאר אוטומטית</h1>
+    <p class="lead">אתה כותב טקסט, והמערכת מייצרת סרטון אווטאר מדבר בקול מקצועי שמוגדר מראש, ומפרסמת אותו בארבע הרשתות. אוטומטית, בלי עריכה, בלי צילום.</p>
+
+    <div class="flow">
+      <span class="s">כותבים טקסט</span><span class="a">←</span>
+      <span class="s">בוחרים לבוש</span><span class="a">←</span>
+      <span class="s">אווטאר מדבר בקול שהוגדר מראש</span><span class="a">←</span>
+      <span class="s">כתוביות ומוזיקה</span><span class="a">←</span>
+      <span class="s">פרסום ל-4 רשתות</span>
+    </div>
+
+    <hr class="hr">
+
+    <!-- Offers -->
+    <div class="offers">
+
+      <div class="offer left">
+        <div class="tag">מסלול א׳</div>
+        <h2>גרסת טלגרם</h2>
+        <div class="desc">ניהול מלא דרך בוט בצ׳אט. בלי אפליקציה, בלי הרשמה.</div>
+        <div class="pr"><span class="k">הקמה</span><span class="v">₪2,750</span></div>
+        <div class="pr"><span class="k">ריטיינר</span><span class="v r">₪1,000</span><span class="u">/ חודש</span></div>
+        <div class="minirule"></div>
+        <ul>
+          <li>קול קבוע שמוגדר מראש</li>
+          <li>חמישה פריסטים של לבוש, לכל החיים</li>
+          <li>אווטאר מדבר בליפסינק</li>
+          <li>כתוביות ועריכת פודקאסט</li>
+          <li>מוזיקת רקע מותאמת</li>
+          <li>פרסום לארבע רשתות</li>
+        </ul>
+      </div>
+
+      <div class="offer">
+        <div class="tag">מסלול ב׳ · מומלץ</div>
+        <h2>גרסת ממשק אישי</h2>
+        <div class="desc">דף פשוט להפעלת האוטומציה. לא דף נחיתה, אלא ממשק נוח שממנו מפעילים הכל.</div>
+        <div class="pr"><span class="k">הקמה</span><span class="v">₪3,750</span></div>
+        <div class="pr"><span class="k">ריטיינר</span><span class="v r">₪1,000</span><span class="u">/ חודש</span></div>
+        <div class="minirule"></div>
+        <ul>
+          <li>קול קבוע שמוגדר מראש</li>
+          <li>חמישה פריסטים של לבוש, לכל החיים</li>
+          <li>אווטאר מדבר בליפסינק</li>
+          <li>כתוביות ועריכת פודקאסט</li>
+          <li>מוזיקת רקע מותאמת</li>
+          <li>פרסום לארבע רשתות</li>
+          <li>דף הפעלה פשוט עם בחירת לבוש ויזואלית</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Costs -->
+    <div class="costs">
+      <span class="eyebrow">עלויות יצירה</span>
+      <p>
+        עלויות יצירת הסרטונים על המשתמש, לפי שימוש. הכרטיס שלך מחובר ישירות לקרדיטים, כך שאתה משלם רק על מה שאתה יוצר, ללא מתווך.<br>
+        סרטון של כשלושים שניות עולה בערך <span class="coral">₪12</span>. סרטון ביום הוא בערך <b>₪360 לחודש</b>.
+      </p>
+
+      <div class="compare">
+        <div class="cmp">
+          <div class="cmp-k">אצלנו</div>
+          <div class="cmp-v coral">₪360 / חודש</div>
+          <div class="cmp-n">סרטון ביום, כולל יצירה, כתוביות, מוזיקה ופרסום אוטומטי לארבע רשתות</div>
+        </div>
+        <div class="cmp">
+          <div class="cmp-k">יוצר תוכן חיצוני</div>
+          <div class="cmp-v strike">₪3,000+ / חודש</div>
+          <div class="cmp-n">לפחות ₪100 לסרטון, כפול שלושים. וזה עוד בלי ניהול ובלי פרסום הפוסטים.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature -->
+    <div class="sig">
+      <div class="name">אביחי אלנקווה</div>
+      <div class="title">Co-Founder &amp; AI Lead, TodoAI Studio</div>
+      <div class="links">
+        <a href="https://app.todowith.ai/">app.todowith.ai</a> &nbsp;·&nbsp;
+        <a href="https://wa.me/972542064301">וואטסאפ</a> &nbsp;·&nbsp;
+        <a href="https://instagram.com/todoai.il">Instagram</a>
+      </div>
+    </div>
+
+    <div class="foot">© 2026 TodoAI Studio · ההצעה בתוקף ל-14 יום</div>
+
+  </div>
+
+</body>
+</html>
