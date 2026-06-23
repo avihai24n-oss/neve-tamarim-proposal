@@ -96,6 +96,11 @@
     padding:2px 9px; border-radius:999px; }
   .scene p{ font-size:14.5px; color:var(--muted); line-height:1.6; margin-top:6px; max-width:46ch; }
   .scene .line{ height:1px; background:linear-gradient(90deg,var(--green-100),transparent); margin-top:18px; }
+  /* open-ended step — signals the journey can keep growing */
+  .scene.open .node{ border-style:dashed; border-color:var(--green-600); color:var(--green-600);
+    background:var(--green-50); font-size:19px; font-weight:700; box-shadow:0 0 0 6px var(--bg); }
+  .scene.open:hover .node{ background:linear-gradient(135deg,var(--green),var(--green-600)); color:#fff; border-style:solid; }
+  .scene.open h3{ color:var(--green-600); }
   @media(max-width:560px){ .scene{ padding-left:0; } .scene p{ max-width:none; } }
   @media(max-width:600px){ .brand .div, .brand .by{ display:none; } .brand .wm{ font-size:18px; } .nav{ height:60px; } .btn{ padding:10px 18px; font-size:14px; } }
 
@@ -237,8 +242,11 @@
         <div class="ttl"><h3>מתחם מגדלים</h3><span class="tag">Residence</span></div>
         <p>אזור מרובה מגדלים וחיי צעירים.</p><div class="line"></div></div>
       <div class="scene reveal"><span class="node num">09</span>
-        <div class="ttl"><h3>קמפוס עסקים</h3><span class="tag">Finale</span></div>
-        <p>לב כלכלי פועם, מקום לעבוד, לצמוח ולהוביל, התחנה שסוגרת את המסע.</p></div>
+        <div class="ttl"><h3>קמפוס עסקים</h3></div>
+        <p>לב כלכלי פועם, מקום לעבוד, לצמוח ולהוביל.</p><div class="line"></div></div>
+      <div class="scene open reveal"><span class="node">+</span>
+        <div class="ttl"><h3>פתוח להרחבה</h3><span class="tag">Open</span></div>
+        <p>המסע לא נעצר כאן. אפשר להוסיף תחנות, לשנות סדר ולהתאים כל פרק בדיוק לחזון שלכם.</p></div>
     </div>
   </div>
 </section>
