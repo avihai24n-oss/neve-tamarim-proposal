@@ -75,6 +75,12 @@
   .btn-light:hover{ transform:translateY(-2px); background:var(--green-50); }
   .btn-outline{ background:transparent; color:#fff; border-color:rgba(255,255,255,.4); }
   .btn-outline:hover{ border-color:#fff; transform:translateY(-2px); }
+  .nav-cta{ display:flex; align-items:center; gap:10px; }
+  .btn-yt{ background:#fff; color:var(--ink); border-color:var(--line); padding-inline-start:11px; }
+  .btn-yt:hover{ border-color:var(--green-100); transform:translateY(-2px); box-shadow:var(--shadow); }
+  .btn-yt .yt-ico{ display:grid; place-items:center; width:30px; height:21px; background:#FF0000; border-radius:6px; flex:none; }
+  .btn-yt .yt-ico svg{ width:12px; height:12px; fill:#fff; margin-inline-start:1px; }
+  @media(max-width:460px){ .btn-yt .lbl{ display:none; } .btn-yt{ padding:9px 11px; } .nav-cta{ gap:8px; } }
 
   /* hero */
   .hero{ padding:84px 0 40px; background:
@@ -177,16 +183,17 @@
   .more-toggle .chev{ color:var(--muted); font-size:12px; transition:transform .25s; }
   .more-toggle.open .chev{ transform:rotate(180deg); }
   .more-panel{ margin-top:28px; }
-  .vmix{ display:flex; flex-wrap:wrap; gap:24px; justify-content:center; align-items:flex-start; }
-  .vmix .vitem{ margin:0; }
-  .vmix .portrait{ width:232px; max-width:46%; }
-  .vmix .portrait .video-frame{ aspect-ratio:9/16; margin-top:0; }
-  .vmix .land{ width:440px; max-width:100%; }
+  .vmix{ display:flex; flex-wrap:wrap; gap:28px 24px; justify-content:center; align-items:flex-start; }
+  .vmix .vitem{ margin:0; text-align:center; }
+  .vmix .land{ width:100%; }                                  /* NYM: full width row (desktop) */
   .vmix .land .video-frame{ aspect-ratio:16/9; margin-top:0; }
+  .vmix .portrait{ width:300px; max-width:calc(50% - 12px); }  /* two 9:16 side by side (desktop) */
+  .vmix .portrait .video-frame{ aspect-ratio:9/16; margin-top:0; }
   .vmix .vcap{ margin-top:11px; }
   .vmix .vlink{ margin-top:4px; }
   .vmix .playbtn{ width:60px; height:60px; }
   .vmix .playbtn svg{ width:24px; height:24px; }
+  @media(max-width:680px){ .vmix .portrait{ width:100%; max-width:100%; } }  /* phone: each full width, stacked */
   .video-frame{ position:relative; margin-top:38px; border-radius:20px; overflow:hidden; aspect-ratio:16/9;
     background:#0c3d1c; border:1px solid var(--green-100); box-shadow:var(--shadow); cursor:pointer; }
   .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; z-index:4; }
@@ -242,7 +249,13 @@
       <span class="div"></span>
       <span class="by">הצעה מאת <b>TodoAI Studio</b></span>
     </div>
-    <a class="btn btn-primary" href="https://wa.me/972542064301">דברו איתי</a>
+    <div class="nav-cta">
+      <a class="btn btn-yt" href="#example">
+        <span class="yt-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="lbl">עבודות שלי</span>
+      </a>
+      <a class="btn btn-primary" href="https://wa.me/972542064301">דברו איתי</a>
+    </div>
   </div>
 </header>
 
@@ -369,6 +382,15 @@
       </button>
       <div class="more-panel" hidden>
         <div class="vmix">
+          <figure class="vitem land">
+            <div class="video-frame" data-vid="liXEhhn_gWA" onclick="play(this)" role="button" tabindex="0" aria-label="נגן סרטון NYM">
+              <img class="vthumb" src="https://img.youtube.com/vi/liXEhhn_gWA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/liXEhhn_gWA/hqdefault.jpg'" alt="NYM">
+              <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+              <span class="vlabel">NYM</span>
+            </div>
+            <figcaption class="vcap">סרטון תדמית</figcaption>
+            <a class="vlink" href="https://youtu.be/liXEhhn_gWA" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+          </figure>
           <figure class="vitem portrait">
             <div class="video-frame" data-vid="QbsMxK9Auk4" onclick="play(this)" role="button" tabindex="0" aria-label="נגן סרטון קשת 12">
               <img class="vthumb" src="https://img.youtube.com/vi/QbsMxK9Auk4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/QbsMxK9Auk4/hqdefault.jpg'" alt="קשת 12 · חדשות הבוקר">
@@ -386,15 +408,6 @@
             </div>
             <figcaption class="vcap">אוואטר והלבשה ב‑AI</figcaption>
             <a class="vlink" href="https://youtube.com/shorts/4zNo6Pv1VRI" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
-          </figure>
-          <figure class="vitem land">
-            <div class="video-frame" data-vid="liXEhhn_gWA" onclick="play(this)" role="button" tabindex="0" aria-label="נגן סרטון NYM">
-              <img class="vthumb" src="https://img.youtube.com/vi/liXEhhn_gWA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/liXEhhn_gWA/hqdefault.jpg'" alt="NYM">
-              <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
-              <span class="vlabel">NYM</span>
-            </div>
-            <figcaption class="vcap">סרטון תדמית</figcaption>
-            <a class="vlink" href="https://youtu.be/liXEhhn_gWA" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
           </figure>
         </div>
       </div>
