@@ -101,6 +101,13 @@
 
   /* example — video as a LINK card (no embed) */
   .example{ background:var(--bg-alt); }
+  .video-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px; }
+  .vitem{ margin:0; break-inside:avoid; page-break-inside:avoid; }
+  .video-grid .video-card{ margin-top:0; }
+  .vcap{ font-size:14px; color:var(--muted); line-height:1.55; margin-top:12px; }
+  .video-grid .vlink{ margin-top:11px; }
+  .video-grid .vurl{ display:block; margin-top:8px; }
+  @media(max-width:760px){ .video-grid{ grid-template-columns:1fr; } }
   .video-card{ position:relative; display:block; margin-top:34px; border-radius:20px; overflow:hidden;
     aspect-ratio:16/9; background:#0c3d1c; border:1px solid var(--green-100); box-shadow:var(--shadow);
     break-inside:avoid; page-break-inside:avoid; }
@@ -265,16 +272,29 @@
     <div class="sec-head">
       <span class="eyebrow">דוגמה מהעבודות</span>
       <h2>מהפרויקטים האחרונים שלנו.</h2>
-      <p class="lead" style="margin-top:14px">סרטון שיצרנו עבור חברת nextNRG, הדמיה מלאה של המערכת בתוך מתחם.</p>
+      <p class="lead" style="margin-top:14px">שני סרטונים שיצרנו לאחרונה, הדמיה מלאה ל‑nextNRG וסרטון תדמית ליקב תשבי.</p>
     </div>
-    <a class="video-card" href="https://youtu.be/AjiAbpIF3sI" target="_blank" rel="noopener">
-      <img class="vthumb" src="https://img.youtube.com/vi/AjiAbpIF3sI/maxresdefault.jpg" alt="nextNRG · סרטון הדמיה">
-      <span class="playmark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-      <span class="vlabel">nextNRG · Technology Simulation</span>
-    </a>
-    <div class="vlink-box">
-      <a class="vlink" href="https://youtu.be/AjiAbpIF3sI" target="_blank" rel="noopener">▶ צפו בסרטון המלא</a>
-      <span class="vurl">youtu.be/AjiAbpIF3sI</span>
+    <div class="video-grid">
+      <figure class="vitem">
+        <a class="video-card" href="https://youtu.be/AjiAbpIF3sI" target="_blank" rel="noopener">
+          <img class="vthumb" src="https://img.youtube.com/vi/AjiAbpIF3sI/maxresdefault.jpg" alt="nextNRG · סרטון הדמיה">
+          <span class="playmark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">nextNRG · Technology Simulation</span>
+        </a>
+        <figcaption class="vcap">הדמיה מלאה של המערכת בתוך מתחם.</figcaption>
+        <a class="vlink" href="https://youtu.be/AjiAbpIF3sI" target="_blank" rel="noopener">▶ צפו בסרטון</a>
+        <span class="vurl">youtu.be/AjiAbpIF3sI</span>
+      </figure>
+      <figure class="vitem">
+        <a class="video-card" href="https://youtu.be/aH6UTtFJSNA" target="_blank" rel="noopener">
+          <img class="vthumb" src="https://img.youtube.com/vi/aH6UTtFJSNA/maxresdefault.jpg" alt="יקב תשבי · סרטון תדמית">
+          <span class="playmark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">יקב תשבי · Brand Film</span>
+        </a>
+        <figcaption class="vcap">פרויקט ליקב תשבי.</figcaption>
+        <a class="vlink" href="https://youtu.be/aH6UTtFJSNA" target="_blank" rel="noopener">▶ צפו בסרטון</a>
+        <span class="vurl">youtu.be/aH6UTtFJSNA</span>
+      </figure>
     </div>
   </div>
 </section>

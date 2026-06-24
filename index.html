@@ -4,6 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>נווה תמרים · הצעה לסרטון הדמיה למשקיעים</title>
+<meta name="description" content="סרטון הדמיה קולנועי שהופך את חזון נווה תמרים לחוויה. נקודת המבט שלנו, יכולות ה-AI, וקריינות, מוזיקה ועריכה ברמה גבוהה.">
+
+<!-- Open Graph / link preview -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="TodoAI Studio">
+<meta property="og:title" content="נווה תמרים · הצעה לסרטון הדמיה למשקיעים">
+<meta property="og:description" content="סרטון הדמיה קולנועי שהופך את חזון נווה תמרים לחוויה, מבט רחפן על המתחם ועד הרחוב.">
+<meta property="og:url" content="https://avihai24n-oss.github.io/webinar/nevet-tamarim.html">
+<meta property="og:image" content="https://avihai24n-oss.github.io/webinar/nevet-og.jpg">
+<meta property="og:image:secure_url" content="https://avihai24n-oss.github.io/webinar/nevet-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="הדמיית רחפן של מתחם נווה תמרים בצורת פרפר בלב המדבר">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="נווה תמרים · הצעה לסרטון הדמיה למשקיעים">
+<meta name="twitter:description" content="סרטון הדמיה קולנועי שהופך את חזון נווה תמרים לחוויה.">
+<meta name="twitter:image" content="https://avihai24n-oss.github.io/webinar/nevet-og.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -140,6 +160,33 @@
 
   /* example */
   .example{ background:var(--bg-alt); }
+  .video-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:38px; }
+  .vitem{ margin:0; }
+  .vcap{ font-size:14.5px; color:var(--muted); line-height:1.6; margin-top:13px; }
+  .video-grid .video-frame{ margin-top:0; }
+  .video-grid .vlink{ margin-top:6px; }
+  @media(max-width:760px){ .video-grid{ grid-template-columns:1fr; } }
+  /* more-styles toggle */
+  .more-videos{ margin-top:36px; text-align:center; }
+  .more-toggle{ display:inline-flex; align-items:center; gap:11px; cursor:pointer; font-family:inherit;
+    font-weight:700; font-size:15.5px; color:var(--ink); background:#fff; border:1px solid var(--line);
+    padding:12px 22px; border-radius:999px; transition:border-color .2s, box-shadow .2s, transform .2s; }
+  .more-toggle:hover{ border-color:var(--green-100); box-shadow:var(--shadow); transform:translateY(-2px); }
+  .more-toggle .yt-ico{ display:grid; place-items:center; width:34px; height:24px; background:#FF0000; border-radius:7px; }
+  .more-toggle .yt-ico svg{ width:14px; height:14px; fill:#fff; margin-inline-start:2px; }
+  .more-toggle .chev{ color:var(--muted); font-size:12px; transition:transform .25s; }
+  .more-toggle.open .chev{ transform:rotate(180deg); }
+  .more-panel{ margin-top:28px; }
+  .vmix{ display:flex; flex-wrap:wrap; gap:24px; justify-content:center; align-items:flex-start; }
+  .vmix .vitem{ margin:0; }
+  .vmix .portrait{ width:232px; max-width:46%; }
+  .vmix .portrait .video-frame{ aspect-ratio:9/16; margin-top:0; }
+  .vmix .land{ width:440px; max-width:100%; }
+  .vmix .land .video-frame{ aspect-ratio:16/9; margin-top:0; }
+  .vmix .vcap{ margin-top:11px; }
+  .vmix .vlink{ margin-top:4px; }
+  .vmix .playbtn{ width:60px; height:60px; }
+  .vmix .playbtn svg{ width:24px; height:24px; }
   .video-frame{ position:relative; margin-top:38px; border-radius:20px; overflow:hidden; aspect-ratio:16/9;
     background:#0c3d1c; border:1px solid var(--green-100); box-shadow:var(--shadow); cursor:pointer; }
   .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; z-index:4; }
@@ -291,14 +338,67 @@
     <div class="sec-head reveal">
       <span class="eyebrow">דוגמה מהעבודות</span>
       <h2>מהפרויקטים האחרונים שלנו.</h2>
-      <p class="lead" style="margin-top:14px">סרטון שיצרנו עבור חברת nextNRG, הדמיה מלאה של המערכת בתוך מתחם.</p>
+      <p class="lead" style="margin-top:14px">שני סרטונים שיצרנו לאחרונה, הדמיה מלאה ל‑nextNRG וסרטון תדמית ליקב תשבי.</p>
     </div>
-    <div class="video-frame reveal" id="ntvideo" onclick="playNT()" role="button" tabindex="0" aria-label="נגן את סרטון nextNRG">
-      <img class="vthumb" src="https://img.youtube.com/vi/AjiAbpIF3sI/maxresdefault.jpg" alt="nextNRG · סרטון הדמיה">
-      <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
-      <span class="vlabel">nextNRG · Technology Simulation</span>
+    <div class="video-grid">
+      <figure class="vitem reveal">
+        <div class="video-frame" data-vid="AjiAbpIF3sI" onclick="play(this)" role="button" tabindex="0" aria-label="נגן את סרטון nextNRG">
+          <img class="vthumb" src="https://img.youtube.com/vi/AjiAbpIF3sI/maxresdefault.jpg" alt="nextNRG · סרטון הדמיה">
+          <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="vlabel">nextNRG · Technology Simulation</span>
+        </div>
+        <figcaption class="vcap">הדמיה מלאה של המערכת בתוך מתחם, נבנה כולו מ‑0.</figcaption>
+        <a class="vlink" href="https://youtu.be/AjiAbpIF3sI" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+      </figure>
+      <figure class="vitem reveal">
+        <div class="video-frame" data-vid="aH6UTtFJSNA" onclick="play(this)" role="button" tabindex="0" aria-label="נגן את סרטון יקב תשבי">
+          <img class="vthumb" src="https://img.youtube.com/vi/aH6UTtFJSNA/maxresdefault.jpg" alt="יקב תשבי · סרטון תדמית">
+          <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="vlabel">יקב תשבי · Brand Film</span>
+        </div>
+        <figcaption class="vcap">פרויקט ליקב תשבי.</figcaption>
+        <a class="vlink" href="https://youtu.be/aH6UTtFJSNA" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+      </figure>
     </div>
-    <a class="vlink" href="https://youtu.be/AjiAbpIF3sI" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+
+    <div class="more-videos reveal">
+      <button class="more-toggle" type="button" onclick="toggleMore(this)" aria-expanded="false">
+        <span class="yt-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        גלו סגנונות נוספים
+        <span class="chev">▾</span>
+      </button>
+      <div class="more-panel" hidden>
+        <div class="vmix">
+          <figure class="vitem portrait">
+            <div class="video-frame" data-vid="QbsMxK9Auk4" onclick="play(this)" role="button" tabindex="0" aria-label="נגן סרטון קשת 12">
+              <img class="vthumb" src="https://img.youtube.com/vi/QbsMxK9Auk4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/QbsMxK9Auk4/hqdefault.jpg'" alt="קשת 12 · חדשות הבוקר">
+              <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+              <span class="vlabel">קשת 12</span>
+            </div>
+            <figcaption class="vcap">חדשות הבוקר · יואב וגלית</figcaption>
+            <a class="vlink" href="https://youtube.com/shorts/QbsMxK9Auk4" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+          </figure>
+          <figure class="vitem portrait">
+            <div class="video-frame" data-vid="4zNo6Pv1VRI" onclick="play(this)" role="button" tabindex="0" aria-label="נגן סרטון מותג שמלות">
+              <img class="vthumb" src="https://img.youtube.com/vi/4zNo6Pv1VRI/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/4zNo6Pv1VRI/hqdefault.jpg'" alt="מותג שמלות יוקרה">
+              <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+              <span class="vlabel">מותג שמלות יוקרה</span>
+            </div>
+            <figcaption class="vcap">אוואטר והלבשה ב‑AI</figcaption>
+            <a class="vlink" href="https://youtube.com/shorts/4zNo6Pv1VRI" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+          </figure>
+          <figure class="vitem land">
+            <div class="video-frame" data-vid="liXEhhn_gWA" onclick="play(this)" role="button" tabindex="0" aria-label="נגן סרטון NYM">
+              <img class="vthumb" src="https://img.youtube.com/vi/liXEhhn_gWA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/liXEhhn_gWA/hqdefault.jpg'" alt="NYM">
+              <button class="playbtn" aria-label="נגן"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+              <span class="vlabel">NYM</span>
+            </div>
+            <figcaption class="vcap">סרטון תדמית</figcaption>
+            <a class="vlink" href="https://youtu.be/liXEhhn_gWA" target="_blank" rel="noopener">פתחו ביוטיוב ›</a>
+          </figure>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -330,15 +430,25 @@
 </footer>
 
 <script>
-  function playNT(){
-    var f=document.getElementById('ntvideo');
+  function play(f){
+    var vid=f.getAttribute('data-vid');
     /* יוטיוב חוסם נגינה מוטמעת מ-file:// (Error 153). מקומית פותחים בלשונית, על דומיין מנגנים מוטמע. */
-    if(location.protocol==='file:'){ window.open('https://youtu.be/AjiAbpIF3sI','_blank','noopener'); return; }
+    if(location.protocol==='file:'){ window.open('https://youtu.be/'+vid,'_blank','noopener'); return; }
     if(f.classList.contains('playing'))return;
     f.classList.add('playing');
-    f.innerHTML='<iframe src="https://www.youtube.com/embed/AjiAbpIF3sI?autoplay=1&rel=0&modestbranding=1" title="nextNRG - Technology simulation" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    f.innerHTML='<iframe src="https://www.youtube.com/embed/'+vid+'?autoplay=1&rel=0&modestbranding=1" title="video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
   }
-  document.getElementById('ntvideo').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playNT();}});
+  document.querySelectorAll('.video-frame').forEach(function(f){
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(f);}});
+  });
+
+  function toggleMore(btn){
+    var panel=btn.parentElement.querySelector('.more-panel');
+    var willOpen=panel.hasAttribute('hidden');
+    if(willOpen){ panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden',''); }
+    btn.classList.toggle('open',willOpen);
+    btn.setAttribute('aria-expanded',willOpen?'true':'false');
+  }
 
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
